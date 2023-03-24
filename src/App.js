@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import chatGpt from './ChatGpt';
-let API_KEY = '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';
+let API_KEY = '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';
 function App() {
   const [inputText, setInputText] = useState('');
   const [generatedText, setGeneratedText] = useState('');
