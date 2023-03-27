@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import chatGpt from './ChatGpt';
-let API_KEY = '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';
 function App() {
   const [inputText, setInputText] = useState('');
   const [generatedText, setGeneratedText] = useState('');
   const[isloading,setIsLoading] = useState(false);
-  async function handleGenerateText(e) {
+  const API_KEY = process.env.REACT_APP_API_KEY;
+  async function handleGenerateText(e) {  
     e.preventDefault();
     setIsLoading(true);
     const text = await chatGpt(inputText, 'davinci', API_KEY);
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="container mt-5">
-    <h3 className='text text-center mt-3'>Welcome to ChatGPT</h3>
+    <h3 className='text text-center mt-3'>Welcome to ChatGPT </h3>
         <div className='row'>
           <div className='col-lg-7 mt-3'>
             <form onSubmit = {(e)=>handleGenerateText(e)}>
